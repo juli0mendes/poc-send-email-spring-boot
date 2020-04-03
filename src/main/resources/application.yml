@@ -1,0 +1,31 @@
+server:
+  port: ${port:8095}
+
+logging:
+  file: /app-logs/poc-send-email-spring-boot/poc-send-email-spring-boot.log
+  
+spring:
+  application:
+    name: poc-send-email-spring-boot
+  profiles:
+    active: local
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${email_from}
+    password: ${email_password_from}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+          starttls:
+            enable: true
+            
+osklen:
+  email:
+    emailto: ${email_to}
+    subject: Test Spring Boot
+    text: Hello people.
